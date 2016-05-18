@@ -14,8 +14,6 @@ Then press "Send".
 The script will run and display you a page with the HTACCESS data. Copy this and paste it in to the correct file. Or whatever you want to do with it.
 
 #Planned improvements
--Make form prettier
-
 -Sanitize input
 
 -Make page download automaticly
