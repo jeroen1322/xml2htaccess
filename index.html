@@ -2,10 +2,18 @@
 <head>
 <title>XLM Plain Text Generator</title>
 </head>
+<link rel="stylesheet" href="styles.css">
 <body>
-<form action="process.php" method="post">
-	<p>Voer XML in <input type="text" name="input"></p>
-	<input type="submit" name="button" value="Send">
+	<form action="process.php" method="post" class="basic-grey">
+    <h1>XML Form</h1>
+    <label>
+        <span>Enter XML here:</span>
+        <input id="name" type="text" name="input" placeholder="" />
+    </label>
+     <label>
+        <span>&nbsp;</span> 
+        <input type="submit" class="button" value="Send" /> 
+    </label>    
 </form>
 </body>
 </html>
