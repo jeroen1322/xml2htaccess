@@ -3,7 +3,7 @@
 $input = $_POST['input']; 
 
 //Load the string as XML
-$xml = simplexml_load_string($input) or die("Fout tijdens laden XML bestand");
+$xml = simplexml_load_string($input) or die("Error while loading XML file");
 
 //Count the ammount of <url> nodes. This will detirmine how many time the for loop runs.
 $page = count($xml->url);
