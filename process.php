@@ -26,6 +26,8 @@ for($i=1; $i < $page; $i++){
 	
 	echo "RewriteRule ^" . $subpage . "$ " . $xml->url[$i]->loc . " [R=301,L] <br>";
 }
+
+//Download output and save as xml.html, in the same folder as the script. 
 $page = ob_get_contents();
 ob_end_flush();
 $fp = fopen("xml.html","w");
