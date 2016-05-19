@@ -6,7 +6,7 @@ This script will make that task less time consuming (if it works...).
 #How to use
 You need to run this on a webserver of course. Otherwise the PHP script will not work.
 
-I have not written a XML-sitemap script (yet) so i use https://www.xml-sitemaps.com. 
+I have not written a XML-sitemap script (yet) so I use https://www.xml-sitemaps.com. 
 There you can enther the URL and it will generate the XML, on the bottom of the page. You can also download it. 
 Copy the XML at the bottom of the page and paste it in the field on index.html
 Then press "Send".
