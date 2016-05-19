@@ -21,7 +21,7 @@ session_start();
 
 //Check if the download checkbox is checked.
 //If it is checked, download file. 
-//If there is no filename set, download as xml.html.
+//If there is no filename set, download as xml2htaccess.html.
 //If there IS a filename set, download as [user_defined_name].html
 if(isset($_POST['checkbox'])){
 	//Activate download.php
@@ -35,12 +35,12 @@ if(isset($_POST['checkbox'])){
 		//add .html begind the name, so it wil be [user_defined_name].html
 		$name = $filename . ".html";
 	}else{
-		$name = "xml.html";//If there was no name input, use xml.html as filename for download file.
+		$name = "xml2htaccess.html";//If there was no name input, use xml2htaccess.html as filename for download file.
 	}
 }else{
-	//Store the output as xml.html on the server
+	//Store the output as xml2htaccess.html on the server
 	//If the user doesn't want to download the file.
-	$name = "xml.html"; 
+	$name = "xml2htaccess.html"; 
 }
 
 //So download.php can access $name without including process.php
@@ -70,7 +70,7 @@ for($i=1; $i < $page; $i++){
 	echo "RewriteRule ^/" . $subpage . "$ " . $xml->url[$i]->loc . " [R=301,L] <br>";
 }
 
-//Save output and save as xml.html, or the userdefined name.
+//Save output and save as xml2htaccess.html, or the userdefined name.
 $page = ob_get_contents();
 ob_end_flush();
 $fp = fopen($name,"w");
