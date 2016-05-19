@@ -16,12 +16,32 @@
 // You should have received a copy of the GNU General Public License
 // along with xml2htaccess. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 
-//Check if the download checkbox is checked.
-//If it is checked, download xml.html 
+//Start session
+session_start();
 
+//Check if the download checkbox is checked.
+//If it is checked, download file. 
+//If there is no filename set, download as xml.html.
+//If there IS a filename set, download as [filename].html
 if(isset($_POST['checkbox'])){
-	header( "refresh:0.5;url=download.php");
-}	
+	//Activate download.php
+	header( "refresh:1;url=download.php");
+
+	//Set file name
+	if($_POST['name'] != ""){
+		$filename = $_POST['name'];
+		$name = $filename . ".html";
+	}else{
+		$name = "xml.html";
+	}
+}else{
+	//Store the output as xml.html on the server
+	//If the user doesn't want to download the file.
+	$name = "xml.html"; 
+}
+
+//So download.php can access $name without including process.php
+$_SESSION['name'] = $name;
 
 //XML input form on index.html.
 $input = $_POST['input']; 
@@ -47,9 +67,13 @@ for($i=1; $i < $page; $i++){
 	echo "RewriteRule ^/" . $subpage . "$ " . $xml->url[$i]->loc . " [R=301,L] <br>";
 }
 
-//Save output and save as xml.html, in the same folder as the script. 
+//Save output and save as xml.html, or the userdefined name.
 $page = ob_get_contents();
 ob_end_flush();
-$fp = fopen("xml.html","w");
+$fp = fopen($name,"w");
 fwrite($fp,$page);
 fclose($fp);
+
+
+
+
