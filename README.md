@@ -18,6 +18,4 @@ The file will be overwritten if the script runs.
 #Planned improvements
 -Sanitize input
 
--Make page download automaticly
-
 -Write a unit test to test everything 
