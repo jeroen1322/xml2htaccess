@@ -1,7 +1,4 @@
 <?php
-header('Content-Type: application/download');
-header('Content-Disposition: attachment; filename="xml.html"');
-header("Content-Length: " . filesize("xml.html"));
 //Name: xml2htaccess
 //Author: Jeroen Grooten
 //Description and How to: https://github.com/jeroen1322/xml2htaccess
@@ -35,9 +32,4 @@ $page = ob_get_contents();
 ob_end_flush();
 $fp = fopen("xml.html","w");
 fwrite($fp,$page);
-fclose($fp);
-
-//Download xml.html to the user's browser.
-$fp = fopen("xml.html", "r");
-fpassthru($fp);
 fclose($fp);
