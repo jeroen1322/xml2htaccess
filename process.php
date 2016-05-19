@@ -17,7 +17,7 @@ $domein = $xml->url->loc[0];
 
 //Print page list in HTACCESS style and detimine how many pages should be posted.
 //If there are more $pages than there are in the XML file, you will get a list with missing links.
-//Hence why this is automated.
+//Hence why this is automated and doesn't rely on the user to put it in.
 ob_start();
 for($i=1; $i < $page; $i++){
 	//Get the page path without the domein name.
