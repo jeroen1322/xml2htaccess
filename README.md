@@ -17,7 +17,7 @@ The script will run and display a page with the HTACCESS data. Copy this and pas
 The output will be written to xml2htaccess.html (if not given a different name), on your server, and if you want, to your computer.
 
 #WordPress plugin
-Just made a quick WP plugin, because we use a lot of WP at my internship comanpy. So it seemed logical to do so.
+Just made a quick WP plugin, because we use a lot of WP at my internship company. So it seemed logical to do so.
 It is basically the same as the standalone script. 
 It can be downloaded at http://www.jeroengrooten.nl/xml2htaccess.zip.
 It is not tested or anything so USE AT YOUR OWN RISK!
