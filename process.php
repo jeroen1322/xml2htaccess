@@ -22,17 +22,20 @@ session_start();
 //Check if the download checkbox is checked.
 //If it is checked, download file. 
 //If there is no filename set, download as xml.html.
-//If there IS a filename set, download as [filename].html
+//If there IS a filename set, download as [user_defined_name].html
 if(isset($_POST['checkbox'])){
 	//Activate download.php
 	header( "refresh:1;url=download.php");
 
-	//Set file name
+	//Set file name if user put a name in
 	if($_POST['name'] != ""){
 		$filename = $_POST['name'];
+		//replace spaces in input with underscores. 
+		$filename = preg_replace('/\s+/', '_', $filename);
+		//add .html begind the name, so it wil be [user_defined_name].html
 		$name = $filename . ".html";
 	}else{
-		$name = "xml.html";
+		$name = "xml.html";//If there was no name input, use xml.html as filename for download file.
 	}
 }else{
 	//Store the output as xml.html on the server
@@ -73,7 +76,3 @@ ob_end_flush();
 $fp = fopen($name,"w");
 fwrite($fp,$page);
 fclose($fp);
-
-
-
-
