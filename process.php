@@ -16,6 +16,12 @@
 // You should have received a copy of the GNU General Public License
 // along with xml2htaccess. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 
+//Check if the download checkbox is checked.
+//If it is checked, download xml.html 
+
+if(isset($_POST['checkbox'])){
+	header( "refresh:0.5;url=download.php");
+}	
 
 //XML input form on index.html.
 $input = $_POST['input']; 
@@ -27,16 +33,16 @@ $xml = simplexml_load_string($input) or die("Error while loading XML file");
 $page = count($xml->url);
 
 //Get the domain name from the XML string so users don't have to put it in.
-$domein = $xml->url->loc[0];
+$domain= $xml->url->loc[0];
 
 //Print page list in HTACCESS style and detimine how many pages should be posted.
 //If there are more $pages than there are in the XML file, you will get a list with missing links.
 //Hence why this is automated and doesn't rely on the user to put it in.
 ob_start();
 for($i=1; $i < $page; $i++){
-	//Get the page path without the domein name.
+	//Get the page path without the domain name.
 	//This will be posted after "RewriteRule ^/"in the echo
-	$subpage = str_replace($domein,"", $xml->url[$i]->loc);
+	$subpage = str_replace($domain,"", $xml->url[$i]->loc);
 	//Echo all the pages in the HTACCESS style. 
 	echo "RewriteRule ^/" . $subpage . "$ " . $xml->url[$i]->loc . " [R=301,L] <br>";
 }
