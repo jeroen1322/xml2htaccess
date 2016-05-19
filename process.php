@@ -2,6 +2,7 @@
 
 // Name: xml2htaccess
 // Author: Jeroen Grooten
+
 // Description and How to: https://github.com/jeroen1322/xml2htaccess
 // xml2htaccess is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
