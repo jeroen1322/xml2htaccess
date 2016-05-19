@@ -24,7 +24,7 @@ for($i=1; $i < $page; $i++){
 	$subpage = str_replace($domein,"", $xml->url[$i]->loc);
 	//Echo all the pages in the HTACCESS style. 
 	
-	echo "RewriteRule ^" . $subpage . "$ " . $xml->url[$i]->loc . " [R=301,L] <br>";
+	echo "RewriteRule ^/" . $subpage . "$ " . $xml->url[$i]->loc . " [R=301,L] <br>";
 }
 
 //Download output and save as xml.html, in the same folder as the script. 
