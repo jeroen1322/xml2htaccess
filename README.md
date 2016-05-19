@@ -17,7 +17,4 @@ The script will run and display a page with the HTACCESS data. Copy this and pas
 The output will be written to xml2htaccess.html (if not given a different name), on your server, and if you want, to your computer.
 
 #Planned improvements
--Sanitize input
-
--Write a unit test to test everything 
-
+-Write a unit test to test everything. 
