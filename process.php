@@ -20,10 +20,10 @@ $domein = $xml->url->loc[0];
 //Hence why this is automated.
 ob_start();
 for($i=1; $i < $page; $i++){
-	//Get the page path without the domein name. 
+	//Get the page path without the domein name.
+	//This will be posted after "RewriteRule ^/"in the echo
 	$subpage = str_replace($domein,"", $xml->url[$i]->loc);
 	//Echo all the pages in the HTACCESS style. 
-	
 	echo "RewriteRule ^/" . $subpage . "$ " . $xml->url[$i]->loc . " [R=301,L] <br>";
 }
 
