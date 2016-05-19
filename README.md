@@ -8,7 +8,7 @@ You need to run this on a webserver of course. Otherwise the PHP script will not
 
 I have not written a XML-sitemap script (yet) so I use https://www.xml-sitemaps.com. 
 There you can enther the URL and it will generate the XML, on the bottom of the page. You can also download it. 
-Copy the XML at the bottom of the page and paste it in the field on index.html
+Copy the XML at the bottom of the page and paste it in the field on index.html.
 If you want, you can download the HTACCESS file to your computer and give it a different name. 
 
 Then press "Send".
