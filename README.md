@@ -13,8 +13,8 @@ If you want, you can download the HTACCESS file to your computer and give it a d
 
 Then press "Send".
 
-The script will run and display you a page with the HTACCESS data. Copy this and paste it in to the correct file. Or whatever you want to do with it.
-The output will be written to xml.html (if not given a different name), on your server, and if you want, to your computer.
+The script will run and display a page with the HTACCESS data. Copy this and paste it in to the correct file. Or whatever you want to do with it.
+The output will be written to xml2htaccess.html (if not given a different name), on your server, and if you want, to your computer.
 
 #Planned improvements
 -Sanitize input
