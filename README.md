@@ -12,9 +12,11 @@ Copy the XML at the bottom of the page and paste it in the field on index.html
 Then press "Send".
 
 The script will run and display you a page with the HTACCESS data. Copy this and paste it in to the correct file. Or whatever you want to do with it.
-The output will be written to xml.html, on your server. It will also be downloaded to your browser, as xml.html.
+The output will be written to xml.html, on your server. 
 
 #Planned improvements
 -Sanitize input
 
 -Write a unit test to test everything 
+
+-Display output and also download xml.html. Now it only displays the output.
