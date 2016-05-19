@@ -20,3 +20,4 @@ The file will be overwritten if the script runs.
 
 -Make page download automaticly
 
+-Write a unit test to test everything 
