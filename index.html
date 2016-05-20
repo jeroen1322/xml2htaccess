@@ -1,27 +1,28 @@
-<html>
+<!DOCTYPE html>
 <head>
 <title>xml2htaccess</title>
 </head>
-<link rel="stylesheet" href="styles.css">
 <body>
-	<form action="process.php" method="post" class="basic-grey">
+	<form action="process.php" method="post" class="basic-grey" enctype="multipart/form-data">
 		<h1>XML Form</h1>
 		<label>
 			<span>XML:</span>
-			<input id="name" type="text" name="input" placeholder="Insert XML here" autocomplete="off"/>
+			<input id="name" type="file" name="input"/><br/><br/>
 		</label>
 		<label>
-			<span>File name</span>
-			<input type="text" name="name" placeholder="(optional)" autocomplete="off">
+			<span>Download file?</p>
+			<input type="checkbox" name="checkbox" value="download">Yes</span><br><br>
 		</label>
 		<label>
-			<span>Download file? (File is .html)</p></span>
-			<input type="checkbox" name="checkbox" value="download">
+			<input type="text" name="name" placeholder="File name (optional)" autocomplete="off">
 		</label>
 		 <label>
 			<span>&nbsp;</span> 
 			<input type="submit" class="button" value="Send" /> 
 		</label>    
+		<label>
+			<span><a href="http://www.xml-sitemaps.nl/" target="_blank"/>Genereer XML</a></span>
+		</label>
 	</form>
 </body>
 </html>
