@@ -7,12 +7,12 @@
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 2 of the License, or
 // any later version.
- 
+
 // xml2htaccess is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
- 
+
 // You should have received a copy of the GNU General Public License
 // along with xml2htaccess. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 
@@ -25,12 +25,12 @@ session_start();
 //If there IS a filename set, download as [user_defined_name].html
 if(isset($_POST['checkbox'])){
 	//Activate download.php
-	header( "refresh:1;url=download.php");
+	header("refresh:1;url=download.php");
 
 	//Set file name if user put a name in
 	if($_POST['name'] != ""){
 		$filename = $_POST['name'];
-		//replace spaces in input with underscores. 
+		//replace spaces in user declared filename with underscores. 
 		$filename = preg_replace('/\s+/', '_', $filename);
 		//add .html begind the name, so it wil be [user_defined_name].html
 		$name = $filename . ".html";
