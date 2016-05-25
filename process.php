@@ -16,51 +16,12 @@
 // Start session
 
 session_start();
+date_default_timezone_set('Europe/Amsterdam');
 
 // Check if the download checkbox is checked.
 // If it is checked, download file.
 // If there is no filename set, download as xml2htaccess.html.
 // If there IS a filename set, download as [user_defined_name].html
-
-if (isset($_POST['checkbox']))
-{
-
-	// Activate download.php
-
-	header("refresh:1;url=download.php");
-
-	// Set file name if user put a name in
-
-	if ($_POST['name'] != "")
-	{
-		$filename = $_POST['name'];
-
-		// replace spaces in user declared filename with underscores.
-
-		$filename = preg_replace('/\s+/', '_', $filename);
-
-		// add .html begind the name, so it wil be [user_defined_name].html
-
-		$name = $filename . ".html";
-	}
-	else
-	{
-		$name = "xml2htaccess.html"; //If there was no name input, use xml2htaccess.html as filename for download file.
-	}
-}
-else
-{
-
-	// Store the output as xml2htaccess.html on the server
-	// If the user doesn't want to download the file.
-
-	$name = "xml2htaccess.html";
-}
-
-// So download.php can access $name without including process.php
-
-$_SESSION['name'] = $name;
-
 // XML input form on index.html.
 // $input = $_POST['input'];
 // Store uploaded file as $upload
@@ -70,8 +31,7 @@ $upload = $_FILES['input']['tmp_name'];
 // If there has been an XML file uploaded, execute the code below.
 // If not, display an error.
 
-if (@simplexml_load_file($upload))
-{
+if (@simplexml_load_file($upload) && !preg_match("/. (.xml)$/i", $upload)) {
 
 	// Load contents $upload
 
@@ -84,14 +44,37 @@ if (@simplexml_load_file($upload))
 	// Get the domain name from the XML string so users don't have to put it in.
 
 	$domain = $xml->url->loc[0];
+	if (isset($_POST['checkbox'])) {
+		header("refresh:1;url=download.php");
+	}
+
+	// What should be taken out of the name
+
+	$replace = array(
+		"http://",
+		"www.",
+		"/",
+		".nl",
+		".com",
+		".net",
+		".io",
+		"/\s+/"
+	);
+	$name = str_replace($replace, "", $domain);
+
+	// Add .xml filetype after the name so $name.xml will be downloaded
+
+	$name = "sitemap-" . $name . date('-d-m-y') . ".xml";
+	$_SESSION['name'] = $name;
 
 	// Print page list in HTACCESS style and detimine how many pages should be posted.
 	// If there are more $pages than there are in the XML file, you will get a list with missing links.
 	// Hence why this is automated and doesn't rely on the user to put it in.
 
 	ob_start();
-	for ($i = 1; $i < $page; $i++)
-	{
+	echo "#Rewrites van oude naar nieuwe website | " . $domain . " | " . date(' d-m-y') . "<br /><br />";
+	echo "RewriteEngine On<br />";
+	for ($i = 1; $i < $page; $i++) {
 
 		// Get the page path without the domain name.
 		// This will be posted after "RewriteRule ^/"in the echo
@@ -112,7 +95,6 @@ if (@simplexml_load_file($upload))
 	fwrite($fp, $page);
 	fclose($fp);
 }
-else
-{
-	echo "There has been an error while loading the XML data. Please try again and make sure you select the correct file.";
+else {
+	echo "ERROR: Er was een fout tijdens het laden van de XML data. Selecteer alstublieft het goede XML bestand";
 }
