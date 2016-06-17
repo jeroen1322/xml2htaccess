@@ -84,7 +84,7 @@ if (@simplexml_load_file($upload) && !preg_match("/. (.xml)$/i", $upload)) {
 
 		// Echo all the pages in the correct style.
 
-		echo "RewriteRule ^/" . $subpage . "$ [R=301,L] <br />";
+		echo "RewriteRule ^" . $subpage . "$ [R=301,L] <br />";
 	}
 
 	// Save output and save as xml2htaccess.html, or the userdefined name.
